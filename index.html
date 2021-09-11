@@ -1,0 +1,76 @@
+<html>
+<head>
+<title></title>
+<META NAME="DESCRIPTION" CONTENT="">
+<META NAME="KEYWORDS" CONTENT="">
+
+<script type="text/javascript">
+
+function chkcontrol(j) {
+    var total=0;
+    for(var i=0; i < document.form1.ckb.length; i++){
+        if(document.form1.ckb[i].checked){
+            total =total +1;
+        }
+
+        if(total > 3){
+            document.form1.ckb[j].checked = false ;
+            return false;
+        }
+    }
+} 
+
+function show() {
+    var links=[3]
+    var cuenta=0;
+        if(document.form1.ckb[0].checked ){
+            links[cuenta]="https://www.youtube.com/";
+            cuenta=cuenta+1;
+        }
+        if(document.form1.ckb[1].checked ){
+            links[cuenta]="https://www.facebook.com/";
+            cuenta=cuenta+1;
+           
+        }
+        if(document.form1.ckb[2].checked){
+            links[cuenta]="https://www.instagram.com/?hl=es";
+            cuenta=cuenta+1;
+        }
+        if(document.form1.ckb[3].checked){
+            links[cuenta]="https://twitter.com/?lang=es";
+            cuenta=cuenta+1;
+        }
+        if(document.form1.ckb[4].checked){
+            links[cuenta]="https://www.coca-colacanada.ca/coke-zero-sugar";
+            cuenta=cuenta+1;
+
+        }
+        document.getElementById('iframe1').src = links[0];
+        document.getElementById('iframe2').src = links[1];
+        document.getElementById('iframe3').src = links[2];
+    
+} 
+
+</script>
+</head>
+
+<body>
+
+	<form name=form1 method=post action=check.php>
+        <table >
+            <tr><td ></td><td ><b>Choice</b></td></tr>
+            <tr><td ><input type=checkbox name=ckb value=1 onclick='chkcontrol(0)';></td><td >youtube</td></tr>
+            <tr><td ><input type=checkbox name=ckb value=2 onclick='chkcontrol(1)';></td><td >facebook</td></tr>
+            <tr><td ><input type=checkbox name=ckb value=3 onclick='chkcontrol(2)';></td><td >instagram</td></tr>
+            <tr><td ><input type=checkbox name=ckb value=4 onclick='chkcontrol(3)';></td><td >twitter</td></tr>
+            <tr><td ><input type=checkbox name=ckb value=5 onclick='chkcontrol(4)';></td><td >cocacola</td></tr>
+        </table>
+    </form>
+
+    <button onclick="show()";>visitar</button>
+
+    <iframe id="iframe1" src="" frameborder="1" width="300px" height="300px"></iframe>
+    <iframe id="iframe2" src="" frameborder="1" width="300px" height="300px"></iframe>
+    <iframe id="iframe3" src="" frameborder="1" width="300px" height="300px"></iframe>
+</body>
+</html> 
